@@ -3,19 +3,18 @@
 function a($dir)
 {
     $dir = new DirectoryIterator($dir);
-
     foreach ($dir as $item) {
         if (!$item->isDot()) {
             if ($item->isDir()) {
-                echo '<b>'.$item.'</b>' . '<br>';
+                echo '<ul>'.'<b>' . $item . '</b>' . '<br>';
                 a($item->getPathname());
             } else {
-                echo $item . '<br>';
+                echo '<li>' . $item . '</li>' . '<br>'.'</ul>';
             }
         }
     }
 }
-
+echo '<ul>';
 a("./");
 
 echo '--------------------------------------------<br><br><br>';
